@@ -1,5 +1,4 @@
 package Week5;
-
 public class Apartment {
     private int rooms;
     private int squareMeters;
@@ -12,24 +11,20 @@ public class Apartment {
     }
 
     public boolean larger(Apartment otherApartment) {
-        if (this.rooms > otherApartment.squareMeters) {
-            return true;
-        }
-        return false;
+        return this.squareMeters > otherApartment.squareMeters;
     }
 
     // Exercise 87.2: Price difference
-    public int apartmentPrice(Apartment apartment) {
-        return this.rooms * this.pricePerSquareMeter;
+    public int apartmentPrice() {  // Eemaldatud parameeter
+        return this.squareMeters * this.pricePerSquareMeter;
     }
+
     public int priceDifference(Apartment otherApartment) {
-       return Math.abs(apartmentPrice(this) - apartmentPrice(otherApartment));
+        return Math.abs(this.apartmentPrice() - otherApartment.apartmentPrice());
     }
+
     //Exercise 87.3: More expensive than
     public boolean moreExpensiveThan(Apartment otherApartment) {
-        if (this.apartmentPrice(this) < this.apartmentPrice(otherApartment)) {
-            return false;
-        }
-        return true;
+        return this.apartmentPrice() > otherApartment.apartmentPrice();
     }
 }
