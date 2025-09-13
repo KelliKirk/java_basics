@@ -1,6 +1,8 @@
 package Week8;
 import java.util.ArrayList;
 import java.util.HashMap;
+import Week8.interfaces.CivilService;
+import Week8.interfaces.MilitaryService;
 
         public class Main {
             public static void main(String[] args) {
@@ -43,6 +45,24 @@ import java.util.HashMap;
                 register.printRegistrationPlates();
                 System.out.println();
                 register.printOwners();
+
+                // Testing exercise 10
+
+                System.out.println("Testing NationalService");
+
+                CivilService civil = new CivilService(362);
+                MilitaryService military = new MilitaryService(180);
+
+                System.out.println("Civil service days: " + civil.getDaysLeft());
+                System.out.println("Military service days: " + military.getDaysLeft());
+
+                civil.work();
+                military.work();
+
+                System.out.println("After one day of work:");
+                System.out.println("Civil service days: " + civil.getDaysLeft());
+                System.out.println("Military service days: " + military.getDaysLeft());
+
 
 
             }
